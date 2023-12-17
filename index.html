@@ -1,7 +1,7 @@
 <html>
 <body>
  <button id="generate" onclick="gen()">Generate</button>
- <button id="sort" onclick="mysort()">Sort</button>
+ <button id="sort" onclick="mySort()">Sort</button>
  <canvas id="Canvas1" width="800" height="400"></canvas>
 <script>
 var c1 = document.getElementById("Canvas1");
@@ -23,14 +23,14 @@ function display(){
     ct1.fillText(arr[i],50+60*i,100)
   }
 }
-function mysort(){
+function mySort(){
  count=0
- sort()
+ sorting()
 }
-function sort(){
+function sorting(){
   sorted=true
   count++
-  for (i=o;i<7;i++){
+  for (i=0;i<7;i++){
     if(arr[i]>arr[i+1]){
       sorted=false
       temp=arr[i]
