@@ -1,15 +1,15 @@
 <html>
 <body>
-  Sort Demo
- <canvas id="Canvas1" width="800" height="500"></canvas>
  <button id="generate" onclick="gen()">Generate</button>
  <button id="sort" onclick="mysort()">Sort</button>
+ <canvas id="Canvas1" width="800" height="400"></canvas>
 <script>
 var c1 = document.getElementById("Canvas1");
 var ct1 = c1.getContext("2d");
 var arr=[1,2,3,4,5,6,7,8]
 ct1.font="12px Monospace"
 display()
+var count=0
   
 function gen(){
   for(i=0;i<8;i++){
@@ -24,14 +24,23 @@ function display(){
   }
 }
 function mysort(){
+ count=0
+ sort()
+}
+function sort(){
+  sorted=true
+  count++
   for (i=o;i<7;i++){
     if(arr[i]>arr[i+1]){
+      sorted=false
       temp=arr[i]
       arr[i]=arr[i+1]
       arr[i+1]=temp
     }
   }
   display()
+  if(sorted==false){ setTimeout(sort,30) }
+  else{alert("steps= "+count)}
 }
 </script>
 </body>
