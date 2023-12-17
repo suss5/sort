@@ -1,5 +1,6 @@
 <html>
 <body>
+  Sort Demo
 <canvas id="Canvas1" width="800" height="800"></canvas>
   <button id="generate" onclick="gen()">LEFT</button>
   <button id="sort" onclick="mysort()">RIGHT</button>
@@ -22,7 +23,7 @@ function display(){
     ct1.fillText(arr[i],50+60*i,100)
   }
 }
-mysort(){
+function mysort(){
   for (i=o;i<7;i++){
     if(arr[i]>arr[i+1){
       temp=arr[i]
