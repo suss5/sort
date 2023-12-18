@@ -73,21 +73,17 @@ function ok(c,d){
 }
   
 function swap(a,b){
-  anim+=5
-  if(anim<=boxWidth){
-    ct1.clearRect(pos[a]*boxWidth-2,120,boxWidth,100)
-    ct1.clearRect(pos[b]*boxWidth-2,120,boxWidth,100)
-    pos[a]+=5
-    pos[b]-=5
+  if(anim<boxWidth){
+    ct1.clearRect(pos[a]+anim,120,boxWidth,100)
+    ct1.clearRect(pos[b]-anim,120,boxWidth,100)
     ct1.fillStyle="red"
-    ct1.fillRect(pos[a],120,.5*boxWidth,10*arr[a])
+    ct1.fillRect(pos[a]+anim,120,.5*boxWidth,10*arr[a])
     ct1.fillStyle="blue"
-    ct1.fillRect(pos[b],120,.5*boxWidth,10*arr[b])
+    ct1.fillRect(pos[b]-anim,120,.5*boxWidth,10*arr[b])
+    anim+=5
     requestAnimationFrame(function(){swap(a,b)} )
   }
   else{
-   pos[a]-=boxWidth
-   pos[b]+=boxWidth
    temp=arr[a]
    arr[a]=arr[b]
    arr[b]=temp
