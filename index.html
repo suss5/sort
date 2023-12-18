@@ -17,17 +17,17 @@ var c1 = document.getElementById("Canvas1");
 var ct1 = c1.getContext("2d");
 var choiceAlg=document.getElementById('algorithm')
 var size=7
-var arr=[], pos=[], boxWidth=40
+var arr=[], pos=[], boxWidth=50
 var sorting=false,anim=0
-var p=0,sorted,steps
-t=prompt("delay ms")
+var p=0,steps=0
+t=800
  
 function gen(){
   for(i=0;i<size;i++){
     arr[i]=Math.floor(1+Math.random()*9)
     pos[i]=boxWidth*(i+1)
   }
-  console.log("startpos="+pos)
+  steps=0
   display()
 }
  
@@ -35,6 +35,7 @@ function display(){
   ct1.font="18px Monospace"
   ct1.clearRect(0,0,900,500)
   ct1.fillStyle="black"
+  ct1.fillText("Steps= "+steps,30,30)
   for(i=0;i<size;i++){
     ct1.fillText(arr[i],pos[i],100)
     ct1.fillRect(pos[i],120,.5*boxWidth,10*arr[i])
@@ -43,7 +44,7 @@ function display(){
   
 function mySort(){
   if(sorting==true){ return }
-  if(choiceAlg.value=="Bubble"){ sorting=true; sorted=false; steps=0; bubbleSort() }
+  if(choiceAlg.value=="Bubble"){ sorting=true; bubbleSort() }
   else{ alert("MergeSort Not implemented yet") }
 }
   
@@ -61,8 +62,8 @@ function bubble(){
  }
 
 function ok(c,d){
-  ct1.clearRect(pos[c]-2,120,boxWidth+4,100)
-  ct1.clearRect(pos[d]-2,120,boxWidth+4,100)
+  ct1.clearRect(pos[c]-2,120,boxWidth,100)
+  ct1.clearRect(pos[d]-2,120,boxWidth,100)
   ct1.fillStyle="green"
   ct1.fillRect(pos[c],120,.5*boxWidth,10*arr[c])
   ct1.fillRect(pos[d],120,.5*boxWidth,10*arr[d])
@@ -74,8 +75,8 @@ function swap(a,b){
   if(anim<=boxWidth){
     pos[a]+=5
     pos[b]-=5
-    ct1.clearRect(pos[a]*boxWidth-2,120,boxWidth+4,100)
-    ct1.clearRect(pos[b]*boxWidth-2,120,boxWidth+4,100)
+    ct1.clearRect(pos[a]*boxWidth-2,120,boxWidth,100)
+    ct1.clearRect(pos[b]*boxWidth-2,120,boxWidth,100)
     ct1.fillStyle="red"
     ct1.fillRect(pos[a],120,.5*boxWidth,10*arr[a])
     ct1.fillStyle="blue"
