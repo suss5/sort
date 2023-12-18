@@ -20,7 +20,7 @@ var size=7
 var arr=[], pos=[], boxWidth=50
 var sorting=false, sorted=false, anim=0
 var p=0,steps=0, scale=15
-t=prompt("delay")
+delay=800
 
 gen()
  
@@ -64,7 +64,7 @@ function insert(){
   steps++
   if(arr[p]<arr[p-1]){ sorted=false; anim=0; swap(p-1,p)}
   else{ok(p-1,p)}
-  setTimeout(function(){p++;insert()},t)
+  setTimeout(function(){p++;insert()},delay)
  }
 
 function bubbleSort(){  
@@ -87,7 +87,7 @@ function ok(c,d){
   ct1.fillStyle="green"
   ct1.fillRect(pos[c],120,.5*boxWidth,scale*arr[c])
   ct1.fillRect(pos[d],120,.5*boxWidth,scale*arr[d])
-  setTimeout(display,t/3)
+  setTimeout(display,delay/3)
 }
   
 function swap(a,b){
