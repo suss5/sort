@@ -61,7 +61,8 @@ function bubble(){
  }
 
 function ok(c,d){
-  ct1.clearRect(pos[c]-2,120,2*boxWidth,100)
+  ct1.clearRect(pos[c]-2,120,boxWidth+4,100)
+  ct1.clearRect(pos[d]-2,120,boxWidth+4,100)
   ct1.fillStyle="green"
   ct1.fillRect(pos[c],120,.5*boxWidth,10*arr[c])
   ct1.fillRect(pos[d],120,.5*boxWidth,10*arr[d])
@@ -73,7 +74,8 @@ function swap(a,b){
   if(anim<boxWidth){
     pos[a]+=5
     pos[b]-=5
-    ct1.clearRect(a*boxWidth-2,120,2*boxWidth,100)
+    ct1.clearRect(pos[a]*boxWidth-2,120,boxWidth+4,100)
+    ct1.clearRect(pos[b]*boxWidth-2,120,boxWidth+4,100)
     ct1.fillStyle="red"
     ct1.fillRect(pos[a],120,.5*boxWidth,10*arr[a])
     ct1.fillStyle="blue"
