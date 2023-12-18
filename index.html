@@ -26,6 +26,7 @@ function gen(){
     arr[i]=Math.floor(Math.random()*10)
     pos[i]=boxWidth*i
   }
+  console.log("startpos="+pos)
   display()
 }
  
@@ -80,7 +81,7 @@ async function swap(a,b){
   temp=arr[a]
   arr[a]=arr[b]
   arr[b]=temp
-  console.log("fini pos"=pos)
+  console.log("fini pos="+pos)
   
 }
 function sleep(ms) {
