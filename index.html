@@ -5,8 +5,8 @@
     <option value="Bubble">Bubble</option>
     <option value="Merge">Merge</option>
   </select> 
-  <label for="set">Set size:</label>
-  <select id="set">
+  <label for="setsize">Set size:</label>
+  <select id="setsize">
     <option value="7">7</option>
     <option value="10">10</option>
     <option value="15">15</option>
@@ -22,7 +22,7 @@
 var c1 = document.getElementById("Canvas1");
 var ct1 = c1.getContext("2d");
 var choiceAlg=document.querySelector('algorithm')
-var choiceSet=document.querySelector('set')
+var choiceSet=document.querySelector('setsize')
 var size=+(choiceSet.value)
 var arr=[], boxWidth=20
 var sorting=false
