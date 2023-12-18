@@ -22,7 +22,7 @@
 var c1 = document.getElementById("Canvas1");
 var ct1 = c1.getContext("2d");
 var choiceAlg=document.getElementById('algorithm')
-var size=+(document.getElementById('setsize').value)
+var choiceSize=document.getElementById('setsize')
 var arr=[], pos=[], boxWidth=50
 var sorting=false, sorted=false, anim=0
 var p=0,steps=0, scale=15
@@ -31,6 +31,7 @@ delay=800
 gen()
  
 function gen(){
+ size=+(choiceSize.value)
   for(i=0;i<size;i++){
     arr[i]=Math.floor(1+Math.random()*9)
     pos[i]=boxWidth*(i+1)
