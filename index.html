@@ -16,7 +16,7 @@
 var c1 = document.getElementById("Canvas1");
 var ct1 = c1.getContext("2d");
 var choiceAlg=document.getElementById('algorithm')
-var size=10
+var size=7
 var arr=[], pos=[], boxWidth=40
 var sorting=false,anim=0
 var p=0,sorted,steps
@@ -66,16 +66,15 @@ function bubble(){
  }
   
 function swap(a,b){
-  anim+=5
+  anim++
   if(anim<boxWidth){
-    pos[a]+=5
-    pos[b]-=5
-    console.log("swap pos="+pos)
+    pos[a]++
+    pos[b]--
+  //  console.log("swap pos="+pos)
     ct1.fillStyle="red"
     ct1.fillRect(pos[a],120,.5*boxWidth,10*arr[a])
     ct1.fillStyle="blue"
     ct1.fillRect(pos[b],120,.5*boxWidth,10*arr[b])
-    sleep(500)
     requestAnimationFrame(function(){swap(a,b)} )
   }
   else{
