@@ -73,8 +73,7 @@ async function swap(a,b){
     pos[b]-=5
     console.log("swap pos="+pos)
     await sleep(70)
-   // requestAnimationFrame(display)
-    display()
+    requestAnimationFrame(display)
   }
   pos[a]-=boxWidth
   pos[b]+=boxWidth
@@ -85,7 +84,12 @@ async function swap(a,b){
   
 }
 function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
+  const start = new Date().getTime();
+  let currentTime = start;
+
+  while (currentTime - start < ms) {
+    currentTime = new Date().getTime();
+  }
 }
 
 
