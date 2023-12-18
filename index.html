@@ -24,7 +24,7 @@ t=prompt("delay ms")
  
 function gen(){
   for(i=0;i<size;i++){
-    arr[i]=Math.floor(Math.random()*10)
+    arr[i]=Math.floor(1+Math.random()*9)
     pos[i]=boxWidth*i
   }
   console.log("startpos="+pos)
@@ -61,13 +61,14 @@ function bubble(){
   steps++
   if(arr[p+1]<arr[p]){ sorted=false; anim=0; swap(p,p+1)}
   if(p<size-2){setTimeout(function(){p++;bubble()},t) }
+  else{sorting=false}
  }
   
 function swap(a,b){
-  anim+=2
+  anim+=5
   if(anim<boxWidth){
-    pos[a]+=2
-    pos[b]-=2
+    pos[a]+=5
+    pos[b]-=5
   //  console.log("swap pos="+pos)
     ct1.clearRect(a*boxWidth-2,120,2*boxWidth,100)
     ct1.fillStyle="red"
