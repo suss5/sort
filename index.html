@@ -54,7 +54,7 @@ function bubbleSort(){
   ct1.fillStyle="red"
   ct1.fillText("Sorted steps="+steps,10,250)
   sorting=false}
-  else{setTimeout(bubbleSort,70) }
+  else{alert("next cycle");bubbleSort() }
 }
   
 function bubble(){
@@ -65,14 +65,14 @@ function bubble(){
   if(p<size-1){bubble() }
  }
   
-async function swap(a,b){
+function swap(a,b){
   if(arr[a]<=arr[b]){return}
   sorted=false
   for (anim=0; anim<boxWidth; anim+=5){
     pos[a]+=5
     pos[b]-=5
     console.log("swap pos="+pos)
-    await sleep(70)
+    await sleep(90)
     requestAnimationFrame(display)
   }
   pos[a]-=boxWidth
