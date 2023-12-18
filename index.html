@@ -36,7 +36,7 @@ function display(){
   ct1.clearRect(0,0,900,500)
   ct1.fillStyle="black"
   for(i=0;i<size;i++){
-    ct1.fillText(arr[i],pos[i],100)
+    ct1.fillText(5+arr[i],pos[i],100)
     ct1.fillRect(pos[i],120,.5*boxWidth,10*arr[i])
   }
 }
@@ -50,26 +50,28 @@ function mySort(){
 function bubbleSort(){  
   p=0
   bubble()
- /* if(sorted==true){
-  ct1.fillStyle="red"
-  ct1.fillText("Sorted steps="+steps,10,250)
-  sorting=false}
-  else{alert("steps="+steps);bubbleSort() }*/
 }
   
 function bubble(){
   steps++
   if(arr[p+1]<arr[p]){ sorted=false; anim=0; swap(p,p+1)}
+  else{ok(p,p+1)}
   if(p<size-2){setTimeout(function(){p++;bubble()},t) }
   else{sorting=false}
  }
+
+function ok(c,d){
+  ct1.clearRect(c*boxWidth-2,120,2*boxWidth,100)
+    ct1.fillStyle="green"
+    ct1.fillRect(pos[c],120,.5*boxWidth,10*arr[c])
+    ct1.fillRect(pos[d],120,.5*boxWidth,10*arr[d])
+}
   
 function swap(a,b){
   anim+=5
   if(anim<boxWidth){
     pos[a]+=5
     pos[b]-=5
-  //  console.log("swap pos="+pos)
     ct1.clearRect(a*boxWidth-2,120,2*boxWidth,100)
     ct1.fillStyle="red"
     ct1.fillRect(pos[a],120,.5*boxWidth,10*arr[a])
@@ -84,19 +86,9 @@ function swap(a,b){
   arr[a]=arr[b]
   arr[b]=temp
   display()
-  console.log("fini pos="+pos)
   }
 }
   
-function sleep(ms) {
-  const start = new Date().getTime();
-  let currentTime = start;
-
-  while (currentTime - start < ms) {
-    currentTime = new Date().getTime();
-  }
-}
-
 
 </script>
 </body>
