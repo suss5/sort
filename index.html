@@ -64,12 +64,13 @@ function bubble(){
   if(p<size-1){bubble() }
  }
   
-function swap(a,b){
+async function swap(a,b){
   if(arr[a]<=arr[b]){return}
   sorted=false
   for (anim=0; anim<=boxWidth; anim+=5){
     pos[a]+=5
     pos[b]-=5
+    await sleep(50)
     requestAnimationFrame(display)
   }
   pos[a]-=boxWidth
@@ -79,7 +80,11 @@ function swap(a,b){
   arr[b]=temp
   
 }
-  
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+
 </script>
 </body>
 </html>
