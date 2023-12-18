@@ -86,7 +86,7 @@ function bubble(){
   steps++
   if(arr[p+1]<arr[p]){ sorted=false; anim=0; swap(p,p+1)}
   else{ok(p,p+1)}
-  setTimeout(function(){p++;bubble()},t)
+  setTimeout(function(){p++;bubble()},delay)
  }
 
 function ok(c,d){
