@@ -71,7 +71,7 @@ function ok(c,d){
   
 function swap(a,b){
   anim+=5
-  if(anim<boxWidth){
+  if(anim<=boxWidth){
     pos[a]+=5
     pos[b]-=5
     ct1.clearRect(pos[a]*boxWidth-2,120,boxWidth+4,100)
@@ -83,12 +83,12 @@ function swap(a,b){
     requestAnimationFrame(function(){swap(a,b)} )
   }
   else{
-  pos[a]-=boxWidth
-  pos[b]+=boxWidth
-  temp=arr[a]
-  arr[a]=arr[b]
-  arr[b]=temp
-  display()
+   pos[a]-=boxWidth
+   pos[b]+=boxWidth
+   temp=arr[a]
+   arr[a]=arr[b]
+   arr[b]=temp
+   display()
   }
 }
   
