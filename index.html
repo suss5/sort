@@ -47,9 +47,25 @@ function display(){
 function mySort(){
   if(sorting==true){ return }
   if(choiceAlg.value=="Bubble"){ sorting=true; bubbleSort() }
-  else{ alert("MergeSort Not implemented yet") }
+  if(choiceAlg.value=="Insert"){ sorting=true; insertSort() }
 }
-  
+
+function insertSort(){  
+  p=1
+  sorted=true
+  insert()
+}
+
+function insert(){
+ if(p>size-1){sorting=false;
+      if(sorted){ct1.fillText("Sorted",200,30)} 
+      return}
+  steps++
+  if(arr[p]<arr[p-1]){ sorted=false; anim=0; swap(p-1,p)}
+  else{ok(p,p+1)}
+  setTimeout(function(){p++;insert()},t)
+ }
+
 function bubbleSort(){  
   p=0
   sorted=true
