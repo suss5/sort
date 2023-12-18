@@ -1,6 +1,7 @@
 <html>
 <body>
-  <label for="algorithm">Algorithm:</label>
+ <canvas id="Canvas1" width="900" height="500"></canvas>
+ <label for="algorithm">Algorithm:</label>
   <select id="algorithm">
     <option value="Bubble">Bubble</option>
     <option value="Merge">Merge</option>
@@ -8,7 +9,6 @@
   <br> <br>
  <button id="generate" onclick="gen()">Generate</button>
  <button id="sort" onclick="mySort()">Sort</button>
- <canvas id="Canvas1" width="900" height="500"></canvas>
 <br>
 <p>SortDemo</p>  
 
@@ -25,7 +25,7 @@ t=prompt("delay ms")
 function gen(){
   for(i=0;i<size;i++){
     arr[i]=Math.floor(1+Math.random()*9)
-    pos[i]=boxWidth*i
+    pos[i]=boxWidth*(i+1)
   }
   console.log("startpos="+pos)
   display()
@@ -36,7 +36,7 @@ function display(){
   ct1.clearRect(0,0,900,500)
   ct1.fillStyle="black"
   for(i=0;i<size;i++){
-    ct1.fillText(5+arr[i],pos[i],100)
+    ct1.fillText(arr[i],pos[i],100)
     ct1.fillRect(pos[i],120,.5*boxWidth,10*arr[i])
   }
 }
@@ -62,9 +62,10 @@ function bubble(){
 
 function ok(c,d){
   ct1.clearRect(c*boxWidth-2,120,2*boxWidth,100)
-    ct1.fillStyle="green"
-    ct1.fillRect(pos[c],120,.5*boxWidth,10*arr[c])
-    ct1.fillRect(pos[d],120,.5*boxWidth,10*arr[d])
+  ct1.fillStyle="green"
+  ct1.fillRect(pos[c],120,.5*boxWidth,10*arr[c])
+  ct1.fillRect(pos[d],120,.5*boxWidth,10*arr[d])
+  setTimeout(display,t/3)
 }
   
 function swap(a,b){
