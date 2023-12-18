@@ -54,7 +54,7 @@ function bubbleSort(){
   ct1.fillStyle="red"
   ct1.fillText("Sorted steps="+steps,10,250)
   sorting=false}
-  else{alert("next cycle");bubbleSort() }
+  else{alert("steps="+steps);bubbleSort() }
 }
   
 function bubble(){
@@ -71,6 +71,7 @@ function swap(a,b){
     pos[a]++
     pos[b]--
   //  console.log("swap pos="+pos)
+    ct1.clearRect(a*boxWidth,120,2*boxWidth,100)
     ct1.fillStyle="red"
     ct1.fillRect(pos[a],120,.5*boxWidth,10*arr[a])
     ct1.fillStyle="blue"
