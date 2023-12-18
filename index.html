@@ -72,8 +72,7 @@ function ok(c,d){
   
 function swap(a,b){
   if(anim<=boxWidth){
-    ct1.clearRect(pos[a]+anim,120,boxWidth,100)
-    ct1.clearRect(pos[b]-anim,120,boxWidth,100)
+    ct1.clearRect(pos[a],120,2*boxWidth,100)
     ct1.fillStyle="red"
     ct1.fillRect(pos[a]+anim,120,.5*boxWidth,10*arr[a])
     ct1.fillStyle="blue"
