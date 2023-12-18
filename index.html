@@ -1,12 +1,18 @@
 <html>
 <body>
+  <label for="alg">Sort Algorithm:</label>
+  <select id="alg" name="alg">
+    <option value="Bubble">Bubble</option>
+    <option value="Merge">Merge</option>
+  </select>
+ <canvas id="Canvas1" width="800" height="400"></canvas>
  <button id="generate" onclick="gen()">Generate</button>
  <button id="sort" onclick="mySort()">Sort</button>
- <canvas id="Canvas1" width="800" height="400"></canvas>
 <script>
 var c1 = document.getElementById("Canvas1");
 var ct1 = c1.getContext("2d");
-var arr=[1,2,3,4,5,6,7,8]
+var arr=[]
+gen()
 ct1.font="18px Monospace"
 display()
 var count=0
