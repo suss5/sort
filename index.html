@@ -67,9 +67,17 @@ function bubble(){
 function swap(a,b){
   if(arr[a]<=arr[b]){return}
   sorted=false
+  for (anim=0; anim<=boxWidth; anim+=5){
+    pos[a]+=5
+    pos[b]-=5
+    requestAnimationFrame(display)
+  }
+  pos[a]-=boxWidth
+  pos[b]+=boxWidth
   temp=arr[a]
   arr[a]=arr[b]
   arr[b]=temp
+  
 }
   
 </script>
