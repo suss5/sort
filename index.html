@@ -62,7 +62,7 @@ function bubble(){
   if(arr[p+1]<arr[p]){ sorted=false; anim=0; swap(p,p+1)}
   display()
   p++
-  if(p<size-1){bubble() }
+  if(p<size-1){setTimeout(bubble,1000) }
  }
   
 function swap(a,b){
