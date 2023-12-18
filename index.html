@@ -57,11 +57,13 @@ function bubbleSort(){
 }
   
 function bubble(){
+ if(p>size-2){sorting=false;
+      if(sorted){ct1.fillText("Sorted",200,30)} 
+      return}
   steps++
   if(arr[p+1]<arr[p]){ sorted=false; anim=0; swap(p,p+1)}
   else{ok(p,p+1)}
-  if(p<size-2){setTimeout(function(){p++;bubble()},t) }
-  else{sorting=false; ct1.fillText("Sorted="+sorted,200,30)}
+  setTimeout(function(){p++;bubble()},t) }
  }
 
 function ok(c,d){
@@ -73,7 +75,7 @@ function ok(c,d){
   
 function swap(a,b){
   if(anim<=boxWidth){
-    ct1.clearRect(pos[a],120,2*boxWidth,100)
+    ct1.clearRect(pos[a],120,2*boxWidth,scale*10)
     ct1.fillStyle="red"
     ct1.fillRect(pos[a]+anim,120,.5*boxWidth,scale*arr[a])
     ct1.fillStyle="blue"
