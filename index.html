@@ -44,22 +44,22 @@ function mySort(){
   else{ alert("MergeSort Not implemented yet") }
 }
   
-function bubbleSort(){
-  do{
-   p=0
-   sorted=true
-   bubble()
-  }while(sorted==false)
+function bubbleSort(){  
+  p=0
+  sorted=true
+  bubble()
+  if(sorted==true){
   ct1.fillStyle="red"
   ct1.fillText("Sorted steps="+steps,10,250)
-  sorting=false
+  sorting=false}
+  else{setTimeout(bubbleSort,70) }
 }
   
 function bubble(){
   swap(p,p+1)
   display()
   p++
-  if(p<size-1){ setTimeout(bubble,40) }
+  if(p<size-1){bubble() }
  }
   
 function swap(a,b){
