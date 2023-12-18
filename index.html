@@ -1,10 +1,17 @@
 <html>
 <body>
-  <label for="algorithm">Sort Algorithm:</label>
+  <label for="algorithm">Algorithm:</label>
   <select id="algorithm">
     <option value="Bubble">Bubble</option>
     <option value="Merge">Merge</option>
+  </select> 
+  <label for="set">Set size:</label>
+  <select id="set">
+    <option value="7">7</option>
+    <option value="10">10</option>
+    <option value="15">15</option>
   </select>
+  <br>
  <button id="generate" onclick="gen()">Generate</button>
  <button id="sort" onclick="mySort()">Sort</button>
  <canvas id="Canvas1" width="900" height="500"></canvas>
@@ -14,10 +21,10 @@
 <script>
 var c1 = document.getElementById("Canvas1");
 var ct1 = c1.getContext("2d");
-var choice=document.querySelector('algorithm')
-var arr=[]
-var size=15
-var w=20
+var choiceAlg=document.querySelector('algorithm').value
+var choiceSet=document.querySelector('set').value
+var size=+choiceSet
+var arr=[], boxWidth=20
 var sorting=false
 ct1.font="18px Monospace"
 gen()
@@ -34,14 +41,14 @@ function display(){
   ct1.clearRect(0,0,900,500)
   ct1.fillStyle="black"
   for(i=0;i<size;i++){
-    ct1.fillText(arr[i],50+w*i,100)
-    ct1.fillRect(40+w*i,120,15,10*arr[i])
+    ct1.fillText(arr[i],50+boxWidth*i,100)
+    ct1.fillRect(40+boxWidth*i,120,15,10*arr[i])
   }
 }
 function mySort(){
   if(sorting==true){return}
-  if (choice.value=="Bubble"){sorting=true; steps=0; bubbleSort() }
-  else( alert("MergeSort Not implemented yet") }
+  if (choiceAlg=="Bubble"){sorting=true; steps=0; bubbleSort() }
+  else{ alert("MergeSort Not implemented yet") }
   }
   
 function bubbleSort(){
