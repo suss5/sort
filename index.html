@@ -6,6 +6,12 @@
   <select id="algorithm">
     <option value="Bubble">Bubble</option>
     <option value="Insert">Insert</option>
+  </select>
+ <label for="setsize">Set size:</label>
+  <select id="setsize">
+    <option value="8">8</option>
+    <option value="11">12</option>
+    <option value="14">12</option>
   </select> 
   <br> <br>
  <button id="generate" onclick="gen()">Generate</button>
@@ -16,7 +22,7 @@
 var c1 = document.getElementById("Canvas1");
 var ct1 = c1.getContext("2d");
 var choiceAlg=document.getElementById('algorithm')
-var size=7
+var size=+(document.getElementById('setsize').value)
 var arr=[], pos=[], boxWidth=50
 var sorting=false, sorted=false, anim=0
 var p=0,steps=0, scale=15
