@@ -1,17 +1,18 @@
 <html>
 <body>
-  <label for="alg">Sort Algorithm:</label>
-  <select id="alg">
+  <label for="algorithm">Sort Algorithm:</label>
+  <select id="algorithm">
     <option value="Bubble">Bubble</option>
     <option value="Merge">Merge</option>
   </select>
  <button id="generate" onclick="gen()">Generate</button>
  <button id="sort" onclick="mySort()">Sort</button>
- <canvas id="Canvas1" width="900" height="400"></canvas>
+ <canvas id="Canvas1" width="900" height="500"></canvas>
 
 <script>
 var c1 = document.getElementById("Canvas1");
 var ct1 = c1.getContext("2d");
+var choice=document.querySelector('algorithm')
 var arr=[]
 var size=15
 var w=20
@@ -28,22 +29,27 @@ function gen(){
 }
  
 function display(){
-  ct1.clearRect(0,0,800,800)
+  ct1.clearRect(0,0,900,500)
+  ct1.fillStyle="black"
   for(i=0;i<size;i++){
     ct1.fillText(arr[i],50+w*i,100)
     ct1.fillRect(40+w*i,120,15,10*arr[i])
   }
 }
- 
 function mySort(){
   if(sorting==true){return}
-  sorting=true
+  if (choice.value=="Bubble){sorting=true; steps=0; bubbleSort() }
+  else( alert("MergeSort Not implemented yet") }
+  }
   
+function bubbleSort(){
   do{
    p=0
    sorted=true
    bubble()
   }while(sorted==false}
+  ct1.fillStyle="red"
+  ct1.fillText("Sorted steps="+steps,10,250)
   sorting=false
 }
 function bubble(){
@@ -55,6 +61,7 @@ function bubble(){
 function swap(a,b){
   if(arr[a]<=arr[b]){return}
   sorted=false
+  steps++
   temp=arr[a]
   arr[a]=arr[b]
   arr[b]=temp
