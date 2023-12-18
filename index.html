@@ -21,9 +21,9 @@
 <script>
 var c1 = document.getElementById("Canvas1");
 var ct1 = c1.getContext("2d");
-var choiceAlg=document.querySelector('algorithm').value
-var choiceSet=document.querySelector('set').value
-var size=+choiceSet
+var choiceAlg=document.querySelector('algorithm')
+var choiceSet=document.querySelector('set')
+var size=+choiceSet.value
 var arr=[], boxWidth=20
 var sorting=false
 var p=0,sorted,steps
@@ -47,7 +47,7 @@ function display(){
   
 function mySort(){
   if(sorting==true){ return }
-  if(choiceAlg=="Bubble"){ sorting=true; sorted=false; steps=0; bubbleSort() }
+  if(choiceAlg.value=="Bubble"){ sorting=true; sorted=false; steps=0; bubbleSort() }
   else{ alert("MergeSort Not implemented yet") }
 }
   
