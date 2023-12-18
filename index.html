@@ -17,7 +17,7 @@ var c1 = document.getElementById("Canvas1");
 var ct1 = c1.getContext("2d");
 var choiceAlg=document.querySelector('algorithm')
 var size=10
-var arr=[], boxWidth=20
+var arr=[], boxWidth=40
 var sorting=false
 var p=0,sorted,steps
  
@@ -33,8 +33,8 @@ function display(){
   ct1.clearRect(0,0,900,500)
   ct1.fillStyle="black"
   for(i=0;i<size;i++){
-    ct1.fillText(arr[i],50+boxWidth*i,100)
-    ct1.fillRect(40+boxWidth*i,120,15,10*arr[i])
+    ct1.fillText(arr[i],40+boxWidth*i,100)
+    ct1.fillRect(40+boxWidth*i,120,.5*boxWidth,10*arr[i])
   }
 }
   
