@@ -60,7 +60,7 @@ function bubbleSort(){
 function bubble(){
   steps++
   swap(p,p+1)
-//  display()
+  display()
   p++
   if(p<size-1){bubble() }
  }
@@ -68,21 +68,32 @@ function bubble(){
 function swap(a,b){
   if(arr[a]<=arr[b]){return}
   sorted=false
-  for (anim=0; anim<boxWidth; anim+=5){
+  anim=0
+  move()
+} 
+function move(){
+  anim+=5
+  if(anim<boxWidth){
     pos[a]+=5
     pos[b]-=5
     console.log("swap pos="+pos)
-    sleep(90)
-    requestAnimationFrame(display)
+    ct1.fillStyle="red"
+    ct1.fillRect(pos[a],120,.5*boxWidth,10*arr[a])
+    ct1.fillStyle="blue"
+    ct1.fillRect(pos[b],120,.5*boxWidth,10*arr[b])
+    sleep(50)
+    requestAnimationFrame(move)
   }
+  else{
   pos[a]-=boxWidth
   pos[b]+=boxWidth
   temp=arr[a]
   arr[a]=arr[b]
   arr[b]=temp
   console.log("fini pos="+pos)
-  
+  }
 }
+  
 function sleep(ms) {
   const start = new Date().getTime();
   let currentTime = start;
