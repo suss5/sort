@@ -18,7 +18,7 @@ var ct1 = c1.getContext("2d");
 var choiceAlg=document.getElementById('algorithm')
 var size=10
 var arr=[], pos=[], boxWidth=40
-var sorting=false
+var sorting=false,anim=0
 var p=0,sorted,steps
  
 function gen(){
@@ -59,19 +59,13 @@ function bubbleSort(){
   
 function bubble(){
   steps++
-  swap(p,p+1)
+  if(arr[p+1]<arr[p]){ sorted=false; anim=0; swap(p,p+1)}
   display()
   p++
   if(p<size-1){bubble() }
  }
   
 function swap(a,b){
-  if(arr[a]<=arr[b]){return}
-  sorted=false
-  anim=0
-  move()
-} 
-function move(){
   anim+=5
   if(anim<boxWidth){
     pos[a]+=5
@@ -82,7 +76,7 @@ function move(){
     ct1.fillStyle="blue"
     ct1.fillRect(pos[b],120,.5*boxWidth,10*arr[b])
     sleep(50)
-    requestAnimationFrame(move)
+    requestAnimationFrame(function(){swap(a,b)} )
   }
   else{
   pos[a]-=boxWidth
