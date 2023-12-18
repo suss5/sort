@@ -13,31 +13,52 @@
 var c1 = document.getElementById("Canvas1");
 var ct1 = c1.getContext("2d");
 var arr=[]
-var size=8
+var size=15
+var w=20
+var sorting=false
 ct1.font="18px Monospace"
 gen()
-
-  
+var p=0,sorted=true
+ 
 function gen(){
   for(i=0;i<size;i++){
     arr[i]=Math.floor(Math.random()*10)
   }
   display()
 }
-  
+ 
 function display(){
   ct1.clearRect(0,0,800,800)
   for(i=0;i<size;i++){
-    ct1.fillText(arr[i],50+60*i,100)
+    ct1.fillText(arr[i],50+w*i,100)
+    ct1.fillRect(40+w*i,120,15,10*arr[i])
   }
 }
-  
-function mySort(){
  
+function mySort(){
+  if(sorting==true){return}
+  sorting=true
+  
+  do{
+   p=0
+   sorted=true
+   bubble()
+  }while(sorted==false}
+  sorting=false
 }
-
+function bubble(){
+  swap(p,p+1)
+  display()
+  p++
+  if(p<size-1)  { setTimeout(bubble,40) }
+ }
+function swap(a,b){
+  if(arr[a]<=arr[b]){return}
+  sorted=false
+  temp=arr[a]
+  arr[a]=arr[b]
+  arr[b]=temp
+}
 </script>
 </body>
 </html>
-  
-    
