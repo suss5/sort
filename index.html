@@ -60,14 +60,14 @@ function oneSort(){
 }
 
 function fullSort(){
- do{}
+ do{sorting=false}
  while(!oneSort() )
 }
  
 function insertSort(){  
   p=1
   sorted=true
-  insert()
+  return insert()
 }
 
 function insert(){
@@ -83,7 +83,7 @@ function insert(){
 function bubbleSort(){  
   p=0
   sorted=true
-  bubble()
+  return bubble()
 }
   
 function bubble(){
