@@ -26,9 +26,7 @@ var choiceSet=document.querySelector('set').value
 var size=+choiceSet
 var arr=[], boxWidth=20
 var sorting=false
-ct1.font="18px Monospace"
-gen()
-var p=0,sorted=true
+var p=0,sorted,steps
  
 function gen(){
   for(i=0;i<size;i++){
@@ -38,6 +36,7 @@ function gen(){
 }
  
 function display(){
+  ct1.font="18px Monospace"
   ct1.clearRect(0,0,900,500)
   ct1.fillStyle="black"
   for(i=0;i<size;i++){
@@ -45,28 +44,31 @@ function display(){
     ct1.fillRect(40+boxWidth*i,120,15,10*arr[i])
   }
 }
+  
 function mySort(){
-  if(sorting==true){return}
-  if (choiceAlg=="Bubble"){sorting=true; steps=0; bubbleSort() }
+  if(sorting==true){ return }
+  if(choiceAlg=="Bubble"){ sorting=true; sorted=false; steps=0; bubbleSort() }
   else{ alert("MergeSort Not implemented yet") }
-  }
+}
   
 function bubbleSort(){
   do{
    p=0
    sorted=true
    bubble()
-  }while(sorted==false}
+  }while(sorted==false)
   ct1.fillStyle="red"
   ct1.fillText("Sorted steps="+steps,10,250)
   sorting=false
 }
+  
 function bubble(){
   swap(p,p+1)
   display()
   p++
-  if(p<size-1)  { setTimeout(bubble,40) }
+  if(p<size-1){ setTimeout(bubble,40) }
  }
+  
 function swap(a,b){
   if(arr[a]<=arr[b]){return}
   sorted=false
@@ -75,6 +77,7 @@ function swap(a,b){
   arr[a]=arr[b]
   arr[b]=temp
 }
+  
 </script>
 </body>
 </html>
