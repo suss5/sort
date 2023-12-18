@@ -46,8 +46,9 @@ function display(){
   
 function mySort(){
   if(sorting==true){ return }
-  if(choiceAlg.value=="Bubble"){ sorting=true; bubbleSort() }
-  if(choiceAlg.value=="Insert"){ sorting=true; insertSort() }
+  sorting=true;
+  if(choiceAlg.value=="Bubble"){ bubbleSort() }
+  if(choiceAlg.value=="Insert"){ insertSort() }
 }
 
 function insertSort(){  
@@ -62,7 +63,7 @@ function insert(){
       return}
   steps++
   if(arr[p]<arr[p-1]){ sorted=false; anim=0; swap(p-1,p)}
-  else{ok(p,p+1)}
+  else{ok(p-1,p)}
   setTimeout(function(){p++;insert()},t)
  }
 
