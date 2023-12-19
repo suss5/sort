@@ -26,7 +26,7 @@ var choiceSize=document.getElementById('setsize')
 var arr=[], pos=[], boxWidth=50
 var sorting=false, sorted=false, anim=0
 var p=0,steps=0, scale=15
-delay=800
+delay=900
 gen()
  
 function gen(){
@@ -84,9 +84,9 @@ function insert(){
     arr[shift+1]=arr[shift]
    }
    arr[q+1]=temp
-   setTimeout(display,delay/3)
-   setTimeout(function(){p++; insert()},delay)
   }
+ setTimeout(display,delay/3)
+ setTimeout(function(){p++; insert()},delay)
 }  
 
 function bubbleSort(){  
