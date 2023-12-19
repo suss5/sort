@@ -26,7 +26,7 @@ var choiceSize=document.getElementById('setsize')
 var arr=[], pos=[], boxWidth=50
 var sorting=false, sorted=false, anim=0
 var p=0,steps=0, scale=15
-delay=700
+delay=800
 gen()
  
 function gen(){
@@ -70,6 +70,9 @@ function insert(){
       if(sorted){ct1.fillText("Sorted",200,30)} 
       return}
   steps++
+  
+  ct1.fillStyle="cyan"
+  ct1.fillRect(pos[p],120,.5*boxWidth,scale*arr[p])
   q=p-1
   while(arr[p]<arr[q] && q>=0){
    ct1.fillStyle="red"
