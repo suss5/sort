@@ -26,7 +26,6 @@ var choiceSize=document.getElementById('setsize')
 var arr=[], pos=[], boxWidth=50
 var sorting=false, sorted=false, anim=0
 var p=0,steps=0, scale=15
-delay=900
 gen()
  
 function gen(){
@@ -54,39 +53,31 @@ function display(){
 function oneSort(){
   if(sorting==true){ return }
   sorting=true;
-  if(choiceAlg.value=="Bubble"){ bubbleSort() }
-  if(choiceAlg.value=="Insert"){ insertSort() }
+  if(choiceAlg.value=="Bubble"){ delay=800; bubbleSort() }
+  if(choiceAlg.value=="Insert"){ delay=2000; insertSort() }
 }
 
  
 function insertSort(){  
   p=1
   sorted=true
-  insert()
+  while(p<size-1){
+   check=p-1;
+   while(arr[p]<arr[check] && check>0){sorted=false;check--}
+   if(!sorted){ insert(p,check+1) }
 }
 
-function insert(){
- if(p>size-1){sorting=false;
-      if(sorted){ct1.fillText("Sorted",200,30)} 
-      return}
-  steps++
-  
+function insert(from,ins){
   ct1.fillStyle="cyan"
-  ct1.fillRect(pos[p],120,.5*boxWidth,scale*arr[p])
-  q=p-1
-  while(arr[p]<arr[q] && q>=0){
-   ct1.fillStyle="red"
-   ct1.fillRect(pos[q],120,.5*boxWidth,scale*arr[q])
-   q--; sorted=false}
-  if(!sorted){
-   temp=arr[p]
-   for(shift=p; shift>q+1; shift--){
-    arr[shift]=arr[shift-1]
+  ct1.fillRect(pos[from],120,.5*boxWidth,scale*arr[from])
+  ct1.fillStyle="red" 
+  temp=arr[from]
+   for(shift=from-1; shift>ins; shift--){
+    ct1.fillRect(pos[shift],120,.5*boxWidth,scale*arr[shift])
+    arr[shift]=arr[shift+1]
    }
-   arr[q+1]=temp
-  }
+ arr[ins]=temp
  setTimeout(display,delay/3)
- setTimeout(function(){p++; insert()},delay)
 }  
 
 function bubbleSort(){  
