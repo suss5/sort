@@ -23,9 +23,11 @@ var c1 = document.getElementById("Canvas1");
 var ct1 = c1.getContext("2d");
 var choiceAlg=document.getElementById('algorithm')
 var choiceSize=document.getElementById('setsize')
+var sortButton=document.getElementById('sort')
 var arr=[], pos=[], boxWidth=60
-var working=false, sorted=false, anim=0
+var work=false, sorted=false, anim=0
 var p=0,steps=0, scale=15
+sortButton.style.backgroundColor = "green";
 gen()
  
 function gen(){
@@ -51,8 +53,8 @@ function display(){
 }
 
 function oneSort(){
-  if(working==true){ return }
-  working=true;
+  if(work==true){ return }
+  working(true)
   if(choiceAlg.value=="Bubble"){ delay=900; bubbleSort() }
   if(choiceAlg.value=="Insert"){ delay=1400; insertSort() }
 }
@@ -72,7 +74,7 @@ function insertSort(){
      ct1.fillRect(pos[turnRed],120,.5*boxWidth,scale*arr[turnRed])
     }
     insert(p,check+1)
-   setTimeout(function(){working=false;display()},delay)
+   setTimeout(function(){display(); working(false);},delay)
   }
   else{ finished() }
   
@@ -93,7 +95,7 @@ function bubbleSort(){
 }
   
 function bubble(){
- if(p>size-2){working=false;
+ if(p>size-2){working(false);
       if(sorted){ finished() } 
       return}
   steps++
@@ -129,6 +131,16 @@ function swap(a,b){
 function finished(){
   ct1.fillText("Set is Sorted",200,30)
  }
+function working(bool){
+ if(bool){
+  work=true
+  sortButton.style.backgroundColor="red"
+ }
+ else{
+  work=false
+  sortButton.style.backgroundColor="green"
+ }
+}
 </script>
 </body>
 </html>
