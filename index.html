@@ -75,13 +75,13 @@ function insert(){
   if(!sorted){
    temp=arr[p]
    for(shift=q+1; shift<p; shift++){
-    arr[shift]=arr[shift-1]
+    arr[shift+1]=arr[shift]
    }
-   arr[q]=temp
+   arr[q+1]=temp
    display()
    setTimeout(function(){p++; insert()},delay)
   }
-   
+}  
 
 function bubbleSort(){  
   p=0
