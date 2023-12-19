@@ -15,8 +15,7 @@
   </select> 
   <br> <br>
  <button id="generate" onclick="gen()">Generate</button>
- <button id="sort" onclick="oneSort()">One Cycle</button>
- <button id="full" onclick="fullSort()">Full Sort</button>
+ <button id="sort" onclick="oneSort()">One Sort Cycle</button>
 <br>
 
 <script>
@@ -55,25 +54,21 @@ function display(){
 function oneSort(){
   if(sorting==true){ return }
   sorting=true;
-  if(choiceAlg.value=="Bubble"){ return bubbleSort() }
-  if(choiceAlg.value=="Insert"){ return insertSort() }
+  if(choiceAlg.value=="Bubble"){ bubbleSort() }
+  if(choiceAlg.value=="Insert"){ insertSort() }
 }
 
-function fullSort(){
- do{sorting=false}
- while(!oneSort() )
-}
  
 function insertSort(){  
   p=1
   sorted=true
-  return insert()
+  insert()
 }
 
 function insert(){
  if(p>size-1){sorting=false;
       if(sorted){ct1.fillText("Sorted",200,30)} 
-      return sorted}
+      return}
   steps++
   if(arr[p]<arr[p-1]){ sorted=false; anim=0; swap(p-1,p)}
   else{ok(p-1,p)}
@@ -83,13 +78,13 @@ function insert(){
 function bubbleSort(){  
   p=0
   sorted=true
-  return bubble()
+  bubble()
 }
   
 function bubble(){
  if(p>size-2){sorting=false;
       if(sorted){ct1.fillText("Sorted",200,30)} 
-      return sorted}
+      return}
   steps++
   if(arr[p+1]<arr[p]){ sorted=false; anim=0; swap(p,p+1)}
   else{ok(p,p+1)}
