@@ -75,7 +75,7 @@ function insert(from,ins){
   temp=arr[from]
    for(shift=from-1; shift>ins; shift--){
     ct1.fillRect(pos[shift],120,.5*boxWidth,scale*arr[shift])
-    arr[shift]=arr[shift+1]
+    arr[shift+1]=arr[shift]
    }
  arr[ins]=temp
  setTimeout(display,delay/3)
