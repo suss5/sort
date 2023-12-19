@@ -54,7 +54,7 @@ function oneSort(){
   if(sorting==true){ return }
   sorting=true;
   if(choiceAlg.value=="Bubble"){ delay=900; bubbleSort() }
-  if(choiceAlg.value=="Insert"){ delay=1800; insertSort() }
+  if(choiceAlg.value=="Insert"){ delay=1400; insertSort() }
 }
  
 function insertSort(){  
@@ -71,9 +71,9 @@ function insertSort(){
     for(turnRed=check+1; turnRed<p; turnRed++){
      ct1.fillRect(pos[turnRed],120,.5*boxWidth,scale*arr[turnRed])
     }
-    setTimeout(function(){insert(p,check+1)},delay/2)
+    insert(p,check+1)
   }
-  setTimeout(display,delay)
+  setTimeout(function(){sorting=false;display()},delay)
 }
 
 function insert(insHere,frmHere){ 
