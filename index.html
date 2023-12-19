@@ -70,8 +70,10 @@ function insertSort(){
   while(arr[check]>arr[p] && check>=0){sorted=false; check--}
     
   if(!sorted){ 
-    ct1.fillStyle="red"
-    for(turnRed=check+1; turnRed<p; turnRed++){
+    
+    for(turnRed=0; turnRed<p; turnRed++){
+     ct1.fillStyle="green"
+     if(turnRed>check){ct1.fillStyle="red")
      ct1.fillRect(pos[turnRed],120,.5*boxWidth,scale*arr[turnRed])
     }
     insert(p,check+1)
