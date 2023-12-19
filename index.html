@@ -72,8 +72,10 @@ function insertSort(){
      ct1.fillRect(pos[turnRed],120,.5*boxWidth,scale*arr[turnRed])
     }
     insert(p,check+1)
+   setTimeout(function(){working=false;display()},delay)
   }
-  setTimeout(function(){working=false;display()},delay)
+  else{finsished()}
+  
 }
 
 function insert(insHere,frmHere){ 
@@ -92,7 +94,7 @@ function bubbleSort(){
   
 function bubble(){
  if(p>size-2){working=false;
-      if(sorted){ct1.fillText("Sorted",200,30)} 
+      if(sorted){finished)} 
       return}
   steps++
   if(arr[p+1]<arr[p]){ sorted=false; anim=0; swap(p,p+1)}
@@ -124,7 +126,9 @@ function swap(a,b){
    display()
   }
 }
-  
+function finished(){
+  ct1.fillText("Set is Sorted",200,30)
+ }
 </script>
 </body>
 </html>
