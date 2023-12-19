@@ -25,9 +25,9 @@ var choiceAlg=document.getElementById('algorithm')
 var choiceSize=document.getElementById('setsize')
 var sortButton=document.getElementById('sort')
 var arr=[], pos=[], boxWidth=60
-var work=false, sorted=false, anim=0
+var work, sorted=false, anim=0
 var p=0,steps=0, scale=15
-sortButton.style.backgroundColor = "green";
+working(false)
 gen()
  
 function gen(){
@@ -139,7 +139,7 @@ function working(bool){
  }
  else{
   work=false
-  sortButton.style.backgroundColor="green"
+  sortButton.style.backgroundColor=" light green"
  }
 }
 </script>
