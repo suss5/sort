@@ -74,7 +74,7 @@ function insertSort(){
     insert(p,check+1)
    setTimeout(function(){working=false;display()},delay)
   }
-  else{finsished()}
+  else{ finsished() }
   
 }
 
@@ -94,7 +94,7 @@ function bubbleSort(){
   
 function bubble(){
  if(p>size-2){working=false;
-      if(sorted){finished)} 
+      if(sorted){ finished() } 
       return}
   steps++
   if(arr[p+1]<arr[p]){ sorted=false; anim=0; swap(p,p+1)}
