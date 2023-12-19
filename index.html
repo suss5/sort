@@ -54,7 +54,7 @@ function oneSort(){
   if(sorting==true){ return }
   sorting=true;
   if(choiceAlg.value=="Bubble"){ delay=800; bubbleSort() }
-  if(choiceAlg.value=="Insert"){ delay=1000; insertSort() }
+  if(choiceAlg.value=="Insert"){ delay=2000; insertSort() }
 }
 
  
@@ -62,23 +62,30 @@ function insertSort(){
   p=1
   sorted=true
   while(p<size-1 && arr[p]>arr[p-1]){p++}
+ 
+  ct1.fillStyle="cyan"
+  ct1.fillRect(pos[p],120,.5*boxWidth,scale*arr[p])
   check=p-1
-  while(arr[p]<arr[check] && check>=0){check--; sorted=false}
+  while(arr[check]<arr[p] && check>=0){sorted=false; check--}
   
-  if(!sorted){ insert(p,check+1) }
+  
+    
+  if(!sorted){ 
+    ct1.fillStyle="red"
+    for(from=check+1; from<p; check++){
+     ct1.fillRect(pos[check],120,.5*boxWidth,scale*arr[check])
+    }
+      
+    setTimeout(function(){insert(p,check+1)},delay/2}
 }
 
-function insert(from,ins){
-  ct1.fillStyle="cyan"
-  ct1.fillRect(pos[from],120,.5*boxWidth,scale*arr[from])
-  ct1.fillStyle="red" 
-  temp=arr[from]
-   for(shift=from-1; shift>ins; shift--){
-    ct1.fillRect(pos[shift],120,.5*boxWidth,scale*arr[shift])
+function insert(e,f){ 
+  temp=arr[e]
+   for(shift=e-1; shift>=e; shift--){
     arr[shift+1]=arr[shift]
    }
- arr[ins]=temp
- setTimeout(display,delay/3)
+ arr[f]=temp
+ display()
 }  
 
 function bubbleSort(){  
