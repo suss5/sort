@@ -81,7 +81,7 @@ function insert(){
   if(!sorted){
    temp=arr[p]
    for(shift=p; shift>q+1; shift--){
-    arr[shift+1]=arr[shift]
+    arr[shift]=arr[shift-1]
    }
    arr[q+1]=temp
   }
