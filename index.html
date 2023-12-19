@@ -71,14 +71,17 @@ function insert(){
       return}
   steps++
   q=p-1
-  while(arr[p]<arr[q] && q>0){q--; sorted=false}
+  while(arr[p]<arr[q] && q>0){
+   ct1.fillStyle="red"
+   ct1.fillRect(pos[q],120,.5*boxWidth,scale*arr[q])
+   q--; sorted=false}
   if(!sorted){
    temp=arr[p]
    for(shift=q+1; shift<p; shift++){
     arr[shift+1]=arr[shift]
    }
    arr[q+1]=temp
-   display()
+   setTimeout(display,delay/3)
    setTimeout(function(){p++; insert()},delay)
   }
 }  
