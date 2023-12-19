@@ -67,16 +67,13 @@ function insertSort(){
   ct1.fillRect(pos[p],120,.5*boxWidth,scale*arr[p])
   check=p-1
   while(arr[check]<arr[p] && check>=0){sorted=false; check--}
-  
-  
     
   if(!sorted){ 
     ct1.fillStyle="red"
     for(from=check+1; from<p; check++){
      ct1.fillRect(pos[check],120,.5*boxWidth,scale*arr[check])
     }
-      
-    setTimeout(function(){insert(p,check+1)},delay/2}
+    setTimeout(function(){insert(p,check+1)},delay/2)
 }
 
 function insert(e,f){ 
