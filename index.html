@@ -70,10 +70,18 @@ function insert(){
       if(sorted){ct1.fillText("Sorted",200,30)} 
       return}
   steps++
-  if(arr[p]<arr[p-1]){ sorted=false; anim=0; swap(p-1,p)}
-  else{ok(p-1,p)}
-  setTimeout(function(){p++;insert()},delay)
- }
+  q=p-1
+  while(arr[p]<arr[q] && q>0){q--; sorted=false}
+  if(!sorted){
+   temp=arr[p]
+   for(shift=q+1; shift<p; shift++){
+    arr[shift]=arr[shift-1]
+   }
+   arr[q]=temp
+   display()
+   setTimeout(function(){p++; insert()},delay)
+  }
+   
 
 function bubbleSort(){  
   p=0
