@@ -60,7 +60,7 @@ function oneSort(){
 function insertSort(){  
   p=1
   sorted=true
-  while(p<size-1 && arr[p]>arr[p-1]){p++}
+  while(p<size-1 && arr[p]>=arr[p-1]){p++}
   ct1.fillStyle="cyan"
   ct1.fillRect(pos[p],120,.5*boxWidth,scale*arr[p])
   check=p-1
