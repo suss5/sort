@@ -1,6 +1,6 @@
 <html>
 <body>
-  <button id="sort" onclick="oneSort()">
+  <button id="sort">
      <img src="play100.png" style="width: 7vw; height: 7vh;">
   </button>
   <button id="stop" onclick="stopSort()">
@@ -9,7 +9,7 @@
   <button id="last">
      <img src="last100.png" style="width: 7vw; height: 7vh;">
     </button>
-  <button id="next">
+  <button id="next" onclick="oneSort()">
      <img src="next100.png" style="width: 7vw; height: 7vh;">
     </button>
   
@@ -122,10 +122,19 @@ function oneSort(){
   work=true
   delay=+(speedDelay.value)
   if(choiceAlg.value=="Bubble"){ bubbleSort() }
-  if(choiceAlg.value=="Insertion"){ arr[0].col=sortCol; insertSort(1) }
-  if(choiceAlg.value=="Selection"){ selectSort(0) }
+  if(choiceAlg.value=="Insertion"){ arr[0].col=sortCol; insertSort( sortedUpTo(arr) ) }
+  if(choiceAlg.value=="Selection"){ selectSort( sortedUpTo(arr) ) }
 }
 
+function sortedUpTo(lookin){
+  for( let u=0; u<size; u++){
+    if(lookin[u].col!=sortCol){return u}
+  }
+  return (size+1)
+}
+function continue(){
+}
+  
 function selectSort(s){
   if(s>=size){ finish(); return }
   arr[s].col=checkCol
@@ -142,7 +151,7 @@ function selectSort(s){
     setTimeout( function(){ display(arr) }, .6*delay)
   }
   setTimeout( function(){ swap(s,lowPos); arr[lowPos].col=initCol[lowPos%2]; arr[s].col=sortCol; display(arr) }, delay)
-  setTimeout( function(){ selectSort(s+1) }, 1.5*delay)
+  setTimeout( function(){ continue() }, 1.5*delay)
 }
  
 function insertSort(i){  
@@ -174,7 +183,7 @@ function insertSort(i){
    }
   }
   setTimeout(function(){ display(arr) }, 1.9*delay)
-  setTimeout(function(){ insertSort(i+1) }, 2*delay)
+  setTimeout(function(){ continue() }, 2*delay)
 }
 
 function stopSort(){}
@@ -188,7 +197,7 @@ function bubbleSort(){
 function bubble(){
   if(p>size-2){
      if(sorted){ finish() }
-     else{ setTimeout( function(){ bubbleSort() }, delay ); return}
+     else{ setTimeout( function(){ continue() }, delay ); return}
   }
   steps++
  
