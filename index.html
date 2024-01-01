@@ -1,6 +1,6 @@
 <html>
 <body>
-  <button id="sort">
+  <button id="sort" onclick="longPlay()">
      <img src="play100.png" style="width: 7vw; height: 7vh;">
   </button>
   <button id="stop" onclick="stopSort()">
@@ -9,7 +9,7 @@
   <button id="last">
      <img src="last100.png" style="width: 7vw; height: 7vh;">
     </button>
-  <button id="next" onclick="oneSort()">
+  <button id="next" onclick="onePlay()">
      <img src="next100.png" style="width: 7vw; height: 7vh;">
     </button>
   
@@ -115,9 +115,14 @@ function display(item){
     }
   }
 }
-
+function onePlay(){
+   go=1
+ }
+ function longPlay(){
+   go=9999
+ }
 function oneSort(){
-  if(work==true){ return }
+  if(work==true || go--<1){ return }
   steps=0
   work=true
   delay=+(speedDelay.value)
