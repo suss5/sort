@@ -23,7 +23,7 @@ var c1 = document.getElementById("Canvas1")
 var ct1 = c1.getContext("2d")
 var canWidth=window.innerWidth, canHeight= window.innerHeight
 c1.width=Math.floor(.95*canWidth)
-c1.height=Math.floor(.6*canHeight)
+c1.height=Math.floor(.7*canHeight)
 var boxWidth=Math.floor(.07*canWidth)
 var scale=Math.floor(.03*canHeight)
  
@@ -46,7 +46,7 @@ function gen(){
   for(i=0;i<size;i++){
    arr[i]={val: Math.floor(1+Math.random()*9),
            x: boxWidth*(i+1),
-           y: Math.floor(.13*canHeight),
+           y: Math.floor(.2*canHeight),
            col: initCol
           }
   }
@@ -59,7 +59,7 @@ function display(item){
   ct1.font="3vw Monospace"
   ct1.clearRect(0,0,c1.width,c1.height)
   ct1.fillStyle="black"
-  ct1.fillText("Comparison steps "+steps,0,.06*c1.height)
+  ct1.fillText("Comparison steps "+steps,0,.1*c1.height)
   for(i=0;i<size;i++){
     ct1.fillStyle=item[i].col
     ct1.fillText(item[i].val,item[i].x,item[i].y-.03*c1.height)
@@ -175,7 +175,7 @@ function swap(a,b){
  
 function finish(){
   display(arr)
-  ct1.fillText("Set Sorted",.5*c1.width,.06*c1.height)
+  ct1.fillText("Set Sorted",.5*c1.width,.1*c1.height)
   working(false)
 }
  
