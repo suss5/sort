@@ -127,7 +127,7 @@ function onePlay(){
 function stopSort(){ go=0 }
   
 function oneSort(){
-  if(work || go>0){ return }
+  if(work || go<1){ return }
   steps=0
   work=true
   delay=+(speedDelay.value)
