@@ -116,15 +116,17 @@ function display(item){
   }
 }
 function onePlay(){
+  if(work){return}
   go=1
   oneSort()
  }
  function longPlay(){
+   if(work){return}
    go=9999
    oneSort()
  }
 function oneSort(){
-  if(work==true || go>0){ return }
+  if(work || go>0){ return }
   steps=0
   work=true
   delay=+(speedDelay.value)
