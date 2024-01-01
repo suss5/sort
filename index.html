@@ -15,8 +15,8 @@
     <option value="10">10</option>
   </select> 
   <br> <br>
- <button id="generate" onclick="gen()" style="font-size: 4vw">Generate</button>
- <button id="sort" onclick="oneSort()" style="font-size: 5vw">Sort</button>
+ <button id="generate" onclick="gen()" style="font-size: 3vw">Generate</button>
+ <button id="sort" onclick="oneSort()" style="font-size: 4vw">Start Sort</button>
 <br>
 <script>
 var c1 = document.getElementById("Canvas1")
@@ -36,7 +36,7 @@ var arr=[], copy=[]
 var work, sorted
 var sortCol="green", initCol="gray", wrongCol="red", checkCol="orange"
 var p,steps, delay
- delay=500
+ delay=800
 working(false)
 gen()
  
@@ -62,7 +62,7 @@ function display(item){
   ct1.fillText("Comparison steps "+steps,0,.1*c1.height)
   for(i=0;i<size;i++){
     ct1.fillStyle=item[i].col
-    ct1.fillText(item[i].val,item[i].x,item[i].y-.03*c1.height)
+    ct1.fillText(item[i].val,item[i].x,item[i].y-.04*c1.height)
     ct1.fillRect(item[i].x,item[i].y,.5*boxWidth,scale*item[i].val)
   }
 }
