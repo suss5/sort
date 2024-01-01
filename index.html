@@ -132,7 +132,8 @@ function sortedUpTo(lookin){
   }
   return (size+1)
 }
-function continue(){
+  
+function continu(){
 }
   
 function selectSort(s){
@@ -151,7 +152,7 @@ function selectSort(s){
     setTimeout( function(){ display(arr) }, .6*delay)
   }
   setTimeout( function(){ swap(s,lowPos); arr[lowPos].col=initCol[lowPos%2]; arr[s].col=sortCol; display(arr) }, delay)
-  setTimeout( function(){ continue() }, 1.5*delay)
+  setTimeout( function(){ continu() }, 1.5*delay)
 }
  
 function insertSort(i){  
@@ -183,7 +184,7 @@ function insertSort(i){
    }
   }
   setTimeout(function(){ display(arr) }, 1.9*delay)
-  setTimeout(function(){ continue() }, 2*delay)
+  setTimeout(function(){ continu() }, 2*delay)
 }
 
 function stopSort(){}
@@ -197,7 +198,7 @@ function bubbleSort(){
 function bubble(){
   if(p>size-2){
      if(sorted){ finish() }
-     else{ setTimeout( function(){ continue() }, delay ); return}
+     else{ setTimeout( function(){ continu() }, delay ); return}
   }
   steps++
  
