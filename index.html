@@ -62,7 +62,7 @@ function display(item){
   ct1.fillText("Comparison steps "+steps,0,.1*c1.height)
   for(i=0;i<size;i++){
     ct1.fillStyle=item[i].col
-    ct1.fillText(item[i].val,item[i].x,item[i].y-.04*c1.height)
+    ct1.fillText(item[i].val,item[i].x,item[i].y-.03*c1.height)
     ct1.fillRect(item[i].x,item[i].y,.6*boxWidth,scale*item[i].val)
   }
 }
