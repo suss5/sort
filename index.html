@@ -61,7 +61,7 @@ var arr=[], copy=[]
 var work=false, sorted, chartType=1
 const sortCol="green", wrongCol="red", checkCol="orange"
 const initCol=["brown","purple"]
-var p,steps, delay
+var p,steps, delay, go=0
 
 gen()
  
@@ -123,6 +123,9 @@ function onePlay(){
    go=9999
    oneSort()
  }
+
+function stopSort(){ go=0 }
+  
 function oneSort(){
   if(work || go>0){ return }
   steps=0
@@ -196,8 +199,6 @@ function insertSort(i){
   setTimeout(function(){ display(arr) }, 1.9*delay)
   setTimeout(function(){ continu() }, 2*delay)
 }
-
-function stopSort(){}
 
 function bubbleSort(){  
   p=0
