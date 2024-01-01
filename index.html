@@ -207,7 +207,7 @@ function bubbleSort(){
   
 function bubble(){
   if(p>size-2){
-     if(sorted){ finish() }
+     if(sorted){ finish(); return }
      else{ setTimeout( function(){ continu() }, delay ); return}
   }
   steps++
