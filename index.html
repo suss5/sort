@@ -3,6 +3,8 @@
   <button id="sort" onclick="longPlay()">
      <img src="play100.png" style="width: 7vw; height: 7vh;">
   </button>
+  <label for="speed" style="font-size: 3vw">Delay:</label>
+  <input type="range" id="speed" min="1" max="10" value="5" style="width: 30%">
   <button id="stop" onclick="stopSort()">
      <img src="stop100.png" style="width: 7vw; height: 7vh;">
     </button>
@@ -28,10 +30,7 @@
  <br>
  <canvas id="Canvas1"></canvas>
  <br>
-  
-  <label for="speed" style="font-size: 3vw">Delay:</label>
-  <input type="range" id="speed" min="1" max="10" value="5" style="width: 70%">
-  <br>
+
   <label for="setsize" style="font-size: 3vw">Set:</label>
   <select id="setsize" style="font-size: 3vw">
     <option value="6">6Random</option>
