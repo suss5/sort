@@ -2,31 +2,31 @@
 <body>
   
   <button id="sort" onclick="longPlay()">
-     <img src="play100.png" style="width: 7vw; height: 7vh;">
+     <img src="play100.png" style="width: 8vw; height: 8vh;">
   </button>
   <button id="stop" onclick="stopSort()">
-     <img src="stop100.png" style="width: 7vw; height: 7vh;">
+     <img src="stop100.png" style="width: 8vw; height: 8vh;">
     </button>
   <button id="last" onclick="back()">
-     <img src="last100.png" style="width: 7vw; height: 7vh;">
+     <img src="last100.png" style="width: 8vw; height: 8vh;">
     </button>
   <button id="next" onclick="onePlay()">
-     <img src="next100.png" style="width: 7vw; height: 7vh;">
+     <img src="next100.png" style="width: 8vw; height: 8vh;">
     </button>
   
-  <select id="algorithm" onchange="describe()" style="font-size: 3vw">
+  <select id="algorithm" onchange="describe()" style="font-size: 3vw; border: 2px solid ">
     <option value="Bubble">Bubble Sort</option>
     <option value="Insertion">Insertion Sort</option>
     <option value="Selection">Selection Sort</option>
   </select>
   <button id="slider">
-     <img src="slider1.png" onclick="chart()" style="width: 10vw; height: 6vh;">
+     <img src="slider1.png" onclick="chart()" style="width: 12vw; height: 6vh;">
   </button>
   <button id="generate" onclick="gen()">
      <img src="gen100.png" style="width: 6vw; height: 6vh;">
   </button>
   <br>
-  <input type="range" id="speed" min="1" max="6" value="4" style="width: 18%">
+  <input type="range" id="speed" min="1" max="6" value="4" style="width: 20%">
  <br>
  <br>
  <canvas id="Canvas1" style="border: 1px solid"></canvas>
@@ -60,15 +60,14 @@ var arr=[], oldarr=[], copy=[]
 var work=false, sorted, chartType=1
 const sortCol="green", wrongCol="red", checkCol="orange"
 const initCol=["brown","purple"]
-var p,steps=0, delay, go=0
+var p,steps=0, oldsteps=0, delay, go=0
   
 describe()
 gen()
  
 function gen(){
  if(work){return}
- size=+(choiceSize.value)
- 
+ size=+(choiceSize.value) 
  if(size==9){
   for(i=0;i<size;i++){
    arr[i]={val: 9-i,
@@ -76,7 +75,7 @@ function gen(){
            y: Math.floor(.8*c1.height),
            col: initCol[i%2]
           }
-  }
+   }
  }
   else{
    for(i=0;i<size;i++){
@@ -88,9 +87,9 @@ function gen(){
      if(size==7){arr[i].val=prompt("Enter item "+(i+1) ) }
    }
  }
-  steps=0
-  oldarr=JSON.parse( JSON.stringify(arr) )
-  display(arr)
+ steps=0; oldsteps=0
+ oldarr=JSON.parse( JSON.stringify(arr) )
+ display(arr)
 }
 
 function describe(){
@@ -147,6 +146,7 @@ function oneSort(){
   if(arr[size-1].col==sortCol){ return }
   work=true
   oldarr=JSON.parse( JSON.stringify(arr) )
+  oldsteps=steps
   delay=+(speedDelay.value)*200
   if(choiceAlg.value=="Bubble"){ bubbleSort() }
   if(choiceAlg.value=="Insertion"){ arr[0].col=sortCol; insertSort( sortedUpTo(arr) ) }
@@ -265,6 +265,11 @@ function swap(a,b){
 }
 function back(){
   arr=JSON.parse( JSON.stringify(oldarr) )
+  steps=oldsteps
+  display(arr)
+}
+function chart(){
+  chartType=-chartType
   display(arr)
 }
 function finish(){
