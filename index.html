@@ -31,25 +31,34 @@
  <br>
  <canvas id="Canvas1" style="border: 1px solid"></canvas>
  <br>
- <textarea id="myText1" rows="12" style="resize: none; width: 49%"></textarea>
- <textarea id="myText2" rows="12" style="resize: none; width: 49%"></textarea>
+ <textarea id="myText1" rows="12" style="resize: none; border: 2px solid; width: 49%" readonly></textarea>
+ <textarea id="myText2" rows="12" style="resize: none; border: 2px solid; width: 49%" readonly></textarea>
  <br>
- <label for="setsize" style="font-size: 2vw">Edit Data Set</label>
+ <label for="setsize" style="font-size: 2vw">Edit Data Size</label>
  <select id="setsize" style="font-size: 2vw">
-    <option value="6">6 Random</option>
-    <option value="10">10 Random</option>
-    <option value="7">7 UserInput</option>
-    <option value="9">9 Decrease</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+  </select>
+   
+<label for="setType" style="font-size: 2vw">Edit Data Type</label>
+ <select id="setType" style="font-size: 2vw">
+    <option value="1">Random</option>
+    <option value="2">UserInput</option>
+    <option value="3">Decrease</option>
+    <option value="4">Sorted</option>
   </select>
 
 <script>
 const c1 = document.getElementById("Canvas1")
 const ct1 = c1.getContext("2d")
-c1.width=Math.floor(.98*window.innerWidth)
+c1.width=Math.floor(.97*window.innerWidth)
 c1.height=Math.floor(.4*window.innerHeight)
-const boxWidth=Math.floor(.08*window.innerWidth)
+const boxWidth=Math.floor(.07*window.innerWidth)
 const choiceAlg=document.getElementById('algorithm')
 const choiceSize=document.getElementById('setsize')
+const choiceType=document.getElementById('setType')
 const sortButton=document.getElementById('sort')
 
 const speedDelay=document.getElementById('speed')
@@ -67,8 +76,9 @@ gen()
  
 function gen(){
  if(work){return}
- size=+(choiceSize.value) 
- if(size==9){
+ size=+(choiceSize.value)
+ type=+(choiceType.value)
+ if(type==3){
   for(i=0;i<size;i++){
    arr[i]={val: 9-i,
            x: boxWidth*(i+1),
@@ -77,16 +87,30 @@ function gen(){
           }
    }
  }
-  else{
+  if(type==1){
    for(i=0;i<size;i++){
     arr[i]={val: Math.floor(1+Math.random()*9),
             x: boxWidth*(i+1),
             y: Math.floor(.8*c1.height),
             col: initCol[i%2]
-           }
-     if(size==7){arr[i].val=prompt("Enter item "+(i+1) ) }
-   }
- }
+           } }}
+  if(type==4){
+   for(i=0;i<size;i++){
+   arr[i]={val: i+1,
+           x: boxWidth*(i+1),
+           y: Math.floor(.8*c1.height),
+           col: initCol[i%2]
+          }}}
+  
+  if(type==2){
+   for(i=0;i<size;i++){
+   arr[i]={val: prompt("Enter item "+(i+1)),
+           x: boxWidth*(i+1),
+           y: Math.floor(.8*c1.height),
+           col: initCol[i%2]
+          }}
+  }
+  
  steps=0; oldsteps=0
  oldarr=JSON.parse( JSON.stringify(arr) )
  display(arr)
@@ -94,12 +118,12 @@ function gen(){
 
 function describe(){
      if(choiceAlg.value=="Bubble"){
-    text1.value="Bubble sort is ...\n It is O(n*n) complexity in worst case"
-    text2.value="Comparing 1st and 2nd element\n-swap if 1st element is greater\nRepeat for each pair\nIf any swaps done then restart process"
-  }
+    text1.value="Bubble sort functions by iteratively going through the array for the number of elements within the array. It swaps as it goes moving the largest number it has found up the list until it reaches a larger number and then begins to bubble that up to the top. Once it has reached the top it then repeats this process for however many elements in the array there is. Due to this it has an average and worst case of O(n2) and a best case in the event the numbers are already sorted of O(n). As it will not create any more variables besides from two to index the array as the list gets longer it has a space complexity of O(1)."
+    text2.value = "procedure bubbleSort(array)\n\t n = array.length\n\t for i = 0 to n-2\n\t\t for j = 0 to n-i-2\n\t\t\t if array[j] > array[j+1] then\n\t\t\t\t temp = array[j]\n\t\t\t\t array[j] = array[j+1]\n\t\t\t\t array[j+1] = temp\n\t\t\t endif\n\t\t endfor\n\t endfor\nendprocedure"
+     }
     if(choiceAlg.value=="Insertion"){
-    text1.value="Insert ..."
-    text2.value="Insert ..."
+    text1.value="Place holder for insertion sort\nthis is line 2\nline 3"
+    text2.value="Second placeholder for insertion"
   }
   if(choiceAlg.value=="Selection"){
     text1.value="Selection sort is ..." 
@@ -110,8 +134,8 @@ function describe(){
 function display(item){
   ct1.clearRect(0,0,c1.width,c1.height)
   ct1.fillStyle="black"
-  ct1.font="3vw Monospace"
-  ct1.fillText(steps,.9*c1.width,.2*c1.height)
+  ct1.font="8vw Monospace"
+  ct1.fillText(steps,.9*c1.width,.5*c1.height)
   
   ct1.font="4vw Monospace"
   for(i=0;i<size;i++){
