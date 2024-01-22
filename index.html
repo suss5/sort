@@ -283,7 +283,7 @@ function bubble(){
     
    arr[p].col=initCol[p%2]
    arr[p+1].col=initCol[(p+1)%2]
-   if(p==size-2 || arr[p+2].col=sortCol){ arr[p+1].col=sortCol }
+   if(p==size-2 || arr[p+2].col==sortCol){ arr[p+1].col=sortCol }
    setTimeout(function(){ display(arr) }, .7*delay)
    setTimeout(function(){ p++; bubble() },delay)
  }
