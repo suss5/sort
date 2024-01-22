@@ -249,6 +249,7 @@ function bubbleSort(){
   
 function bubble(){
   if(p>size-2 || arr[p+1].col==sortCol){
+     arr[p].col=sortCol
      if(sorted){ finish(); return }
      else{ setTimeout( function(){ continu() }, delay ); return}
   }
